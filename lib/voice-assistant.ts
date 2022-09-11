@@ -107,9 +107,7 @@ export class VoiceAssistant {
                     console.log(error);
                 }
                 console.log(fromDevice,this.vaName);
-                
-                if (fromDevice == this.vaName)
-                    this.processData(messageId, data)
+                this.processData(messageId, data)
             }
         })
     }

@@ -1,7 +1,8 @@
 import { BlinkerDevice } from '../../lib/blinker';
 import { Miot, VA_TYPE } from '../../lib/voice-assistant';
+import axios from "axios";
 
-let device = new BlinkerDevice('');
+let device = new BlinkerDevice('01CB2612H3YZ');
 
 let miot = device.addVoiceAssistant(new Miot(VA_TYPE.OUTLET));
 
@@ -11,9 +12,11 @@ device.ready().then(() => {
         // console.log(message.data);
         switch (message.data.set.pState) {
             case 'true':
+                axios.get("http://h5.saygift.cc/oder?Qd=0onGLO5640F5CHYa&sw=1&od=op")
                 message.power('on').update();
                 break;
             case 'false':
+                axios.get("http://h5.saygift.cc/oder?Qd=0onGLO5640F5CHYa&sw=1&od=cs")
                 message.power('off').update();
                 break;
             default:
